@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
