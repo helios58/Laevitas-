@@ -1,0 +1,25 @@
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <input
+    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    type="text" value="{{user.id}}" hidden [(ngModel)]="id" [ngModelOptions]="{standalone: true}">
+  <label class="block  text-sm font-bold mb-2">
+    Nom
+  </label>
+  <input disabled
+    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    type="text" value="{{user.nom}}">
+  <label class="block  text-sm font-bold mb-2">
+    Prénom
+  </label>
+  <input disabled
+    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    type="text" value="{{user.prenom}}">
+  <label class="block  text-sm font-bold mb-2">
+    Experience
+  </label>
+  <input
+    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    type="number" value="{{user.experience}}" [(ngModel)]="experience" min="0" [ngModelOptions]="{standalone: true}">
+</form>
+
+
