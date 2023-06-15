@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges  } from '@angular/core';
+import {Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import {User} from "../../interfaces/user";
 import { Subscription } from 'rxjs'
 import {EventService} from "../Shared/event-service";
@@ -11,6 +11,7 @@ import {EventService} from "../Shared/event-service";
 export class UsersListComponent implements OnInit, OnChanges  {
   @Input() user:User
   @Input() resetChanges: boolean
+  @Output() triggerReload = new EventEmitter<Boolean>();
 
   event: string;
   private eventSubscription: Subscription;
@@ -41,5 +42,11 @@ export class UsersListComponent implements OnInit, OnChanges  {
       data[objectIndex].experience = this.experience;
     }
     localStorage.setItem('users', JSON.stringify(data))
+  }
+  deleteUser() {
+    let data = JSON.parse(localStorage.getItem('users') || '[]')
+    data = data.filter((item: any) => item.id !== this.id);
+    localStorage.setItem('users', JSON.stringify(data))
+    this.triggerReload.emit(true)
   }
 }

@@ -38,8 +38,10 @@ export class SidebarComponent implements OnChanges {
        if(changes.editId.currentValue !== undefined){
         let users = JSON.parse(localStorage.getItem('users') || '[]')
         let index = users.findIndex(((obj: any) => obj.id == this.editId))
-        this.userForm.controls['nom'].setValue(users[index].nom)
-        this.userForm.controls['prenom'].setValue(users[index].prenom)
+         if(index !== -1) {
+           this.userForm.controls['nom'].setValue(users[index].nom)
+           this.userForm.controls['prenom'].setValue(users[index].prenom)
+         }
        }
       }
     }

@@ -81,7 +81,7 @@
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
     <div *ngFor="let user of users">
         <div>
-          <app-users-list [user]="user" [resetChanges]="resetChanges" (click)="editUser(user.id)"></app-users-list>
+          <app-users-list [user]="user" [resetChanges]="resetChanges" (click)="editUser(user.id)" (triggerReload)="updateUsers()"></app-users-list>
         </div>
       </div>
     </div>
